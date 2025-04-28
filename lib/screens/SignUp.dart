@@ -315,8 +315,10 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final TextEditingController userNameSignUpController = TextEditingController();
-  final TextEditingController passwordSignUpController = TextEditingController();
+  final TextEditingController userNameSignUpController =
+      TextEditingController();
+  final TextEditingController passwordSignUpController =
+      TextEditingController();
   String? errorMessage;
   late DatabaseReference databaseReference;
   Location location = Location();
@@ -390,7 +392,7 @@ class _SignUpState extends State<SignUp> {
       Workmanager().registerPeriodicTask(
         "locationBackgroundTask",
         fetchBackgroundTask,
-        frequency: const Duration(minutes: 15),
+        frequency: const Duration(minutes: 5),
         inputData: {'userId': newUserKey},
       );
 
@@ -424,7 +426,8 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(height: 40),
                 TextField(
                   controller: userNameSignUpController,
-                  decoration: const InputDecoration(hintText: "Enter User Name"),
+                  decoration:
+                      const InputDecoration(hintText: "Enter User Name"),
                 ),
                 const SizedBox(height: 20),
                 TextField(
@@ -440,8 +443,10 @@ class _SignUpState extends State<SignUp> {
                 ],
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 80, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
                   ),
                   onPressed: signUp,
                   child: const Text("Sign Up", style: TextStyle(fontSize: 18)),
