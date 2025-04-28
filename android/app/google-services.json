@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "516388712035",
+    "project_id": "office-project-eaf6a",
+    "storage_bucket": "office-project-eaf6a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516388712035:android:c966237cf9e6ab31b39256",
+        "android_client_info": {
+          "package_name": "com.example.newfirebaseproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWF8GAO4T14QewN0Hk8pAGvrUKKly2ydc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
