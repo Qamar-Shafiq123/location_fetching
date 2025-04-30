@@ -18,19 +18,25 @@ void callbackDispatcher() {
         PermissionStatus permissionGranted = await location.hasPermission();
         if (permissionGranted == PermissionStatus.denied) {
           permissionGranted = await location.requestPermission();
-          if (permissionGranted != PermissionStatus.granted) return Future.value(false);
+          if (permissionGranted != PermissionStatus.granted)
+            return Future.value(false);
         }
 
         LocationData locationData = await location.getLocation();
 
         String? userId = inputData?['userId'];
         if (userId != null) {
-          DatabaseReference ref = FirebaseDatabase.instance.ref().child('Users').child(userId);
+          DatabaseReference ref =
+              FirebaseDatabase.instance.ref().child('Users').child(userId);
           await ref.update({
             'latitude': locationData.latitude,
             'longitude': locationData.longitude,
             'lastUpdated': DateTime.now().toIso8601String(),
           });
+          print(
+              "Background Loaction updated for user $userId at ${DateTime.now()}");
+        } else {
+          print("UserId is null in backgroud task");
         }
       } catch (e) {
         print("Background location update error: $e");
